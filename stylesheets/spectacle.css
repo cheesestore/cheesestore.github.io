@@ -1822,37 +1822,33 @@
   background-color: #23241f;
 }
 /* line 348, ../../app/stylesheets/_layout.scss */
-#spectacle article .doc-examples section:not(:first-child) {
-  margin-top: 1.5rem;
-}
-/* line 352, ../../app/stylesheets/_layout.scss */
 #spectacle article .doc-examples h5 {
   color: #fefefe;
   font-size: 1rem;
   opacity: 0.8;
 }
-/* line 358, ../../app/stylesheets/_layout.scss */
+/* line 354, ../../app/stylesheets/_layout.scss */
 #spectacle article .doc-examples h5 span {
   opacity: 0.5;
 }
 @media screen and (max-width: 63.9375em) {
-  /* line 365, ../../app/stylesheets/_layout.scss */
+  /* line 361, ../../app/stylesheets/_layout.scss */
   #spectacle article .doc-examples:not(:empty) {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
   }
 }
-/* line 376, ../../app/stylesheets/_layout.scss */
+/* line 372, ../../app/stylesheets/_layout.scss */
 #spectacle article .powered-by {
   font-size: 90%;
   color: #cacaca;
 }
-/* line 381, ../../app/stylesheets/_layout.scss */
+/* line 377, ../../app/stylesheets/_layout.scss */
 #spectacle article .powered-by span {
   color: #f68b1f;
 }
-/* line 390, ../../app/stylesheets/_layout.scss */
+/* line 386, ../../app/stylesheets/_layout.scss */
 #spectacle article .operation .operation-tags {
   position: absolute;
   top: 0;
@@ -1860,20 +1856,21 @@
   right: 0;
 }
 @media screen and (min-width: 64em) {
-  /* line 399, ../../app/stylesheets/_layout.scss */
+  /* line 395, ../../app/stylesheets/_layout.scss */
   #spectacle article .operation .operation-tags {
     right: 50%;
   }
 }
-/* line 403, ../../app/stylesheets/_layout.scss */
+/* line 399, ../../app/stylesheets/_layout.scss */
 #spectacle article .operation .operation-path {
   word-break: break-all;
 }
-/* line 412, ../../app/stylesheets/_layout.scss */
+/* line 408, ../../app/stylesheets/_layout.scss */
 #spectacle .hljs {
   padding: 0 !important;
+  margin-bottom: 1.5rem;
 }
-/* line 415, ../../app/stylesheets/_layout.scss */
+/* line 412, ../../app/stylesheets/_layout.scss */
 #spectacle .hljs pre {
   line-height: 1.25;
   padding: 1.5rem 2rem;
@@ -1886,7 +1883,7 @@
   word-break: normal;
   word-spacing: normal;
 }
-/* line 431, ../../app/stylesheets/_layout.scss */
+/* line 427, ../../app/stylesheets/_layout.scss */
 #spectacle .hljs code {
   font-family: Consolas,"Liberation Mono",Courier,monospace;
   font-weight: inherit;
