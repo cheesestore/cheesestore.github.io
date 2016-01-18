@@ -431,7 +431,7 @@
 }
 /* line 47, ../../app/stylesheets/_layout.scss */
 #spectacle #logo img {
-  max-height: 80px;
+  max-height: 70px;
 }
 /* line 26, ../../app/vendor/foundation/scss/grid/_classes.scss */
 #spectacle .row, #spectacle article .prop-row, #spectacle article .doc-row {
@@ -1627,10 +1627,9 @@
 }
 /* line 73, ../../app/stylesheets/_layout.scss */
 #spectacle #sidebar h5 {
-  margin: 1.5rem 0 0.75rem;
+  margin: 1.5rem 0 0.65rem;
   text-transform: uppercase;
-  color: #cacaca;
-  color: #f68b1f;
+  color: #b6b6b6;
   font-size: 0.9rem;
 }
 /* line 81, ../../app/stylesheets/_layout.scss */
@@ -1645,7 +1644,6 @@
 }
 /* line 91, ../../app/stylesheets/_layout.scss */
 #spectacle #sidebar a.active {
-  color: #f68b1f;
   color: #2199e8;
 }
 /* line 98, ../../app/stylesheets/_layout.scss */
