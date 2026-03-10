@@ -215,12 +215,6 @@
     });
   }
 
-  // Respond to system preference changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      apply(e.matches ? 'dark' : 'light');
-    }
-  });
 })();
 
 // Search — client-side search dialog with keyboard navigation
