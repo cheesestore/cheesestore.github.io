@@ -1,0 +1,11 @@
+{
+  "name": "@cheesestore/docs",
+  "private": true,
+  "scripts": {
+    "dev": "sourcey dev",
+    "build": "sourcey build"
+  },
+  "dependencies": {
+    "sourcey": "file:../sourcey"
+  }
+}
