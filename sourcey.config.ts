@@ -10,7 +10,7 @@ export default defineConfig({
     },
   },
   logo: "./cheese.png",
-  repo: "https://github.com/cheesestore/docs",
+  repo: "https://github.com/cheesestore/cheesestore.github.io",
   editBranch: "main",
   codeSamples: ["curl", "javascript", "typescript", "python", "go", "ruby", "rust"],
   navigation: {
@@ -60,7 +60,7 @@ export default defineConfig({
   },
   navbar: {
     links: [
-      { type: "github", href: "https://github.com/cheesestore/docs" },
+      { type: "github", href: "https://github.com/cheesestore/cheesestore.github.io" },
     ],
     primary: {
       type: "button",
@@ -70,7 +70,7 @@ export default defineConfig({
   },
   footer: {
     links: [
-      { type: "github", href: "https://github.com/cheesestore/docs" },
+      { type: "github", href: "https://github.com/cheesestore/cheesestore.github.io" },
     ],
   },
 });
