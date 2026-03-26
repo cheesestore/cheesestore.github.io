@@ -10,7 +10,7 @@ The Cheese Store API supports two authentication methods. Choose the one that fi
 The simplest way to authenticate. Include your API key in the `Authorization` header:
 
 ```bash
-curl 'https://cheesy.sourcey.com/v2/cheeses' \
+curl 'https://cheese.sourcey.com/v2/cheeses' \
   -H 'Authorization: Bearer sk_live_your_key_here'
 ```
 
@@ -42,7 +42,7 @@ You can have up to 3 active keys at once. This lets you rotate keys without down
 For applications that act on behalf of customers (e.g. "Log in with Cheese Store"), we support the standard OAuth2 Authorization Code flow.
 
 ```
-https://cheesy.sourcey.com/oauth/authorize
+https://cheese.sourcey.com/oauth/authorize
   ?client_id=your_client_id
   &redirect_uri=https://yourapp.com/callback
   &response_type=code

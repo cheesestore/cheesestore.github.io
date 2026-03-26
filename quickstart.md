@@ -14,7 +14,7 @@ You'll need:
 
 ## 1. Get your API key
 
-Sign up at [cheesy.sourcey.com/developers](https://cheesy.sourcey.com/developers). Your API key appears on the dashboard immediately. It looks like this:
+Sign up at [cheese.sourcey.com/developers](https://cheese.sourcey.com/developers). Your API key appears on the dashboard immediately. It looks like this:
 
 ```
 sk_live_cheddar_4a7b2c9d8e1f...
@@ -27,7 +27,7 @@ Yes, all our API keys contain cheese puns. No, this is not configurable.
 Let's find some cheese. Open your terminal and run:
 
 ```bash
-curl -s 'https://cheesy.sourcey.com/v2/cheeses?limit=3' \
+curl -s 'https://cheese.sourcey.com/v2/cheeses?limit=3' \
   -H 'Authorization: Bearer sk_live_your_key_here' | python -m json.tool
 ```
 
@@ -62,7 +62,7 @@ Congratulations. You've just queried a cheese database. Your CS degree is finall
 Switch to sandbox mode (just use the sandbox URL) and place an order:
 
 ```bash
-curl -X POST 'https://sandbox.cheesy.sourcey.com/v2/orders' \
+curl -X POST 'https://sandbox.cheese.sourcey.com/v2/orders' \
   -H 'Authorization: Bearer sk_live_your_key_here' \
   -H 'Content-Type: application/json' \
   -d '{
