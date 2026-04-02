@@ -48,6 +48,11 @@ export default defineConfig({
         openapi: "./cheese.yml",
       },
       {
+        tab: "MCP Tools",
+        slug: "mcp",
+        mcp: "./cheesestore.mcp.json",
+      },
+      {
         tab: "Changelog",
         groups: [
           {

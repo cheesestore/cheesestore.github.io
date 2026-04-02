@@ -1,0 +1,322 @@
+{
+  "mcpSpec": "0.2.0",
+  "mcpVersion": "2025-11-25",
+  "server": {
+    "name": "cheesestore",
+    "version": "2.0.0"
+  },
+  "description": "The Cheese Store MCP server lets AI agents browse, search, and order artisanal cheeses on behalf of discerning humans who have better things to do than scroll through a catalog.\n\nPairs well with a glass of wine and a patient language model.",
+  "capabilities": {
+    "tools": { "listChanged": false },
+    "resources": { "subscribe": false, "listChanged": false },
+    "prompts": { "listChanged": false }
+  },
+  "transport": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["@cheesestore/mcp-server"]
+  },
+  "tools": [
+    {
+      "name": "search_cheese",
+      "description": "Search the cheese catalog by name, origin, milk type, or texture. Returns matching cheeses sorted by relevance. Warning: may induce cravings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "Free-text search (e.g., \"nutty alpine cheese\")" },
+          "milk_type": { "type": "string", "enum": ["cow", "goat", "sheep", "buffalo", "mixed"], "description": "Filter by milk type" },
+          "texture": { "type": "string", "enum": ["soft", "semi-soft", "semi-hard", "hard", "blue", "fresh"], "description": "Filter by texture category" },
+          "origin": { "type": "string", "description": "Country or region of origin (e.g., \"France\", \"Swiss Alps\")" },
+          "min_age_months": { "type": "integer", "minimum": 0, "description": "Minimum aging period in months" },
+          "max_price": { "type": "number", "description": "Maximum price per kg in USD" },
+          "limit": { "type": "integer", "default": 10, "minimum": 1, "maximum": 50, "description": "Results per page" }
+        },
+        "required": ["query"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "cheeses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "origin": { "type": "string" },
+                "milk_type": { "type": "string" },
+                "texture": { "type": "string" },
+                "age_months": { "type": "integer" },
+                "price_per_kg": { "type": "number" },
+                "description": { "type": "string" },
+                "in_stock": { "type": "boolean" }
+              }
+            }
+          },
+          "total": { "type": "integer" }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "idempotentHint": true }
+    },
+    {
+      "name": "get_cheese",
+      "description": "Get full details for a specific cheese by ID. Includes tasting notes, pairings, nutritional info, and current stock levels. Basically everything short of a smell.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cheese_id": { "type": "string", "description": "Cheese ID" }
+        },
+        "required": ["cheese_id"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "origin": { "type": "string" },
+          "region": { "type": "string" },
+          "milk_type": { "type": "string" },
+          "texture": { "type": "string" },
+          "age_months": { "type": "integer" },
+          "price_per_kg": { "type": "number" },
+          "description": { "type": "string" },
+          "tasting_notes": { "type": "string" },
+          "pairings": {
+            "type": "object",
+            "properties": {
+              "wines": { "type": "array", "items": { "type": "string" } },
+              "foods": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "nutrition_per_100g": {
+            "type": "object",
+            "properties": {
+              "calories": { "type": "integer" },
+              "fat_g": { "type": "number" },
+              "protein_g": { "type": "number" },
+              "calcium_mg": { "type": "integer" }
+            }
+          },
+          "in_stock": { "type": "boolean" },
+          "stock_quantity_kg": { "type": "number" }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "idempotentHint": true }
+    },
+    {
+      "name": "recommend_cheese",
+      "description": "Get personalized cheese recommendations based on preferences, occasion, or pairing needs. Our sommelier is a neural network but don't tell the French.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "occasion": { "type": "string", "description": "What's the cheese for? (e.g., \"dinner party\", \"sandwich\", \"existential comfort\")" },
+          "preferences": { "type": "string", "description": "Taste preferences (e.g., \"strong and funky\", \"mild and creamy\")" },
+          "pair_with": { "type": "string", "description": "Wine or food to pair with (e.g., \"Pinot Noir\", \"sourdough\")" },
+          "budget_per_kg": { "type": "number", "description": "Budget in USD per kg" },
+          "count": { "type": "integer", "default": 3, "minimum": 1, "maximum": 10, "description": "Number of recommendations" }
+        }
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "cheese_id": { "type": "string" },
+                "name": { "type": "string" },
+                "reason": { "type": "string" },
+                "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        }
+      },
+      "annotations": { "readOnlyHint": true }
+    },
+    {
+      "name": "create_order",
+      "description": "Place an order for one or more cheeses. Requires a shipping address. International shipping available but customs may have questions about that Époisses.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Cheeses to order",
+            "items": {
+              "type": "object",
+              "properties": {
+                "cheese_id": { "type": "string", "description": "Cheese ID" },
+                "quantity_kg": { "type": "number", "minimum": 0.1, "description": "Weight in kg (minimum 100g)" }
+              },
+              "required": ["cheese_id", "quantity_kg"]
+            }
+          },
+          "shipping_address": {
+            "type": "object",
+            "description": "Delivery address",
+            "properties": {
+              "name": { "type": "string" },
+              "street": { "type": "string" },
+              "city": { "type": "string" },
+              "state": { "type": "string" },
+              "postal_code": { "type": "string" },
+              "country": { "type": "string" }
+            },
+            "required": ["name", "street", "city", "postal_code", "country"]
+          },
+          "gift_message": { "type": "string", "description": "Optional gift note (max 200 chars). We will not judge." },
+          "expedited": { "type": "boolean", "default": false, "description": "Expedited cold-chain shipping (recommended for soft cheeses in summer)" },
+          "dry_run": { "type": "boolean", "default": false, "description": "Preview order totals without placing it" }
+        },
+        "required": ["items", "shipping_address"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": { "type": "string" },
+          "status": { "type": "string", "enum": ["confirmed", "preview"] },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "cheese_id": { "type": "string" },
+                "name": { "type": "string" },
+                "quantity_kg": { "type": "number" },
+                "unit_price": { "type": "number" },
+                "subtotal": { "type": "number" }
+              }
+            }
+          },
+          "shipping_cost": { "type": "number" },
+          "total": { "type": "number" },
+          "estimated_delivery": { "type": "string", "format": "date" }
+        }
+      },
+      "annotations": { "destructiveHint": false, "idempotentHint": false }
+    },
+    {
+      "name": "get_order",
+      "description": "Check the status of an existing order. Includes tracking info if shipped. The cheese is on its way. Try to relax.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": { "type": "string", "description": "Order ID" }
+        },
+        "required": ["order_id"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": { "type": "string" },
+          "status": { "type": "string", "enum": ["confirmed", "processing", "shipped", "delivered", "cancelled"] },
+          "tracking_number": { "type": "string" },
+          "tracking_url": { "type": "string" },
+          "estimated_delivery": { "type": "string", "format": "date" },
+          "items": { "type": "array", "items": { "type": "object" } },
+          "total": { "type": "number" }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "idempotentHint": true }
+    },
+    {
+      "name": "cancel_order",
+      "description": "Cancel an order that hasn't shipped yet. Once the cheese is in the van, there's no going back.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": { "type": "string", "description": "Order ID to cancel" },
+          "reason": { "type": "string", "description": "Cancellation reason (optional but we're curious)" }
+        },
+        "required": ["order_id"]
+      },
+      "annotations": { "destructiveHint": true }
+    },
+    {
+      "name": "subscribe_cheese_box",
+      "description": "Subscribe to a monthly curated cheese box. Each month our cheesemongers select a themed collection. Past themes include \"Alpine Adventure\", \"Stinky but Distinguished\", and \"Goat to Be Kidding Me\".",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "plan": { "type": "string", "enum": ["explorer", "connoisseur", "fromager"], "description": "Subscription tier: explorer (3 cheeses), connoisseur (5 cheeses), fromager (7 cheeses + wine pairing)" },
+          "shipping_address": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "street": { "type": "string" },
+              "city": { "type": "string" },
+              "state": { "type": "string" },
+              "postal_code": { "type": "string" },
+              "country": { "type": "string" }
+            },
+            "required": ["name", "street", "city", "postal_code", "country"]
+          },
+          "preferences": {
+            "type": "object",
+            "description": "Optional preference hints for curation",
+            "properties": {
+              "avoid_milk_types": { "type": "array", "items": { "type": "string" }, "description": "Milk types to exclude (allergies, etc.)" },
+              "intensity": { "type": "string", "enum": ["mild", "medium", "strong", "surprise_me"], "description": "Preferred flavour intensity" }
+            }
+          }
+        },
+        "required": ["plan", "shipping_address"]
+      },
+      "annotations": { "idempotentHint": false }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "cheese://catalog",
+      "name": "Full Catalog",
+      "description": "Complete cheese catalog with current prices and stock levels",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "cheese://featured",
+      "name": "Featured Cheeses",
+      "description": "This week's featured selections, hand-picked by our cheesemonger",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "cheese://regions",
+      "name": "Cheese Regions",
+      "description": "Cheese-producing regions with descriptions and specialties",
+      "mimeType": "application/json"
+    }
+  ],
+  "resourceTemplates": [
+    {
+      "uriTemplate": "cheese://catalog/{cheese_id}",
+      "name": "Cheese Detail",
+      "description": "Full details for a single cheese by ID",
+      "mimeType": "application/json"
+    },
+    {
+      "uriTemplate": "cheese://regions/{region}",
+      "name": "Region Detail",
+      "description": "Cheeses and producers from a specific region",
+      "mimeType": "application/json"
+    }
+  ],
+  "prompts": [
+    {
+      "name": "cheese_board",
+      "description": "Design a cheese board for a specific occasion, guest count, and budget. Returns a curated selection with serving notes and wine pairings.",
+      "arguments": [
+        { "name": "occasion", "description": "What's the event? (e.g., dinner party, picnic, Tuesday)", "required": true },
+        { "name": "guests", "description": "Number of guests", "required": true },
+        { "name": "budget", "description": "Total budget in USD", "required": false }
+      ]
+    },
+    {
+      "name": "pairing_guide",
+      "description": "Get a wine and food pairing guide for a specific cheese or cheese style.",
+      "arguments": [
+        { "name": "cheese", "description": "Cheese name or style (e.g., \"aged cheddar\", \"soft-ripened\")", "required": true }
+      ]
+    }
+  ]
+}
