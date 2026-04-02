@@ -6,13 +6,16 @@ export default defineConfig({
     colors: {
       primary: "#d97706",
       light: "#d97706",
-      dark: "#ca6d06",
+      dark: "#785236",
     },
   },
   logo: "./cheese.png",
   repo: "https://github.com/cheesestore/cheesestore.github.io",
   editBranch: "main",
   codeSamples: ["curl", "javascript", "typescript", "python", "go", "ruby", "rust"],
+  search: {
+    featured: ["introduction", "quickstart", "authentication"],
+  },
   navigation: {
     tabs: [
       {

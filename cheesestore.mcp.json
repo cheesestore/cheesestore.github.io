@@ -19,7 +19,7 @@
   "tools": [
     {
       "name": "search_cheese",
-      "description": "Search the cheese catalog by name, origin, milk type, or texture. Returns matching cheeses sorted by relevance. Warning: may induce cravings.",
+      "description": "Search the cheese catalog by name, origin, milk type, or texture. Returns matching cheeses sorted by relevance.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -60,7 +60,7 @@
     },
     {
       "name": "get_cheese",
-      "description": "Get full details for a specific cheese by ID. Includes tasting notes, pairings, nutritional info, and current stock levels. Basically everything short of a smell.",
+      "description": "Get full details for a specific cheese by ID. Includes tasting notes, pairings, nutritional info, and current stock levels.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -105,7 +105,7 @@
     },
     {
       "name": "recommend_cheese",
-      "description": "Get personalized cheese recommendations based on preferences, occasion, or pairing needs. Our sommelier is a neural network but don't tell the French.",
+      "description": "Get personalized cheese recommendations based on preferences, occasion, or pairing needs.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -166,7 +166,7 @@
             },
             "required": ["name", "street", "city", "postal_code", "country"]
           },
-          "gift_message": { "type": "string", "description": "Optional gift note (max 200 chars). We will not judge." },
+          "gift_message": { "type": "string", "description": "Optional gift note (max 200 chars)" },
           "expedited": { "type": "boolean", "default": false, "description": "Expedited cold-chain shipping (recommended for soft cheeses in summer)" },
           "dry_run": { "type": "boolean", "default": false, "description": "Preview order totals without placing it" }
         },
@@ -199,7 +199,7 @@
     },
     {
       "name": "get_order",
-      "description": "Check the status of an existing order. Includes tracking info if shipped. The cheese is on its way. Try to relax.",
+      "description": "Check the status of an existing order. Includes tracking info if shipped.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -228,7 +228,7 @@
         "type": "object",
         "properties": {
           "order_id": { "type": "string", "description": "Order ID to cancel" },
-          "reason": { "type": "string", "description": "Cancellation reason (optional but we're curious)" }
+          "reason": { "type": "string", "description": "Cancellation reason (optional)" }
         },
         "required": ["order_id"]
       },

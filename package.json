@@ -6,6 +6,6 @@
     "build": "sourcey build"
   },
   "dependencies": {
-    "sourcey": "file:../sourcey"
+    "sourcey": "*"
   }
 }

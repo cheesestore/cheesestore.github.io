@@ -7,6 +7,8 @@ description: The world's finest artisanal cheese, delivered to your door via API
 
 Every cheese marketplace deserves an API with better documentation than most startups have product. The Cheese Store API gives you programmatic access to over 200 artisanal cheeses from 15 countries, complete with tasting notes, pairing suggestions, and real-time inventory. Because if you're going to automate cheese, you should do it properly.
 
+::video[https://www.youtube.com/watch?v=RMdI6Pi5rsE]{title="The art of artisanal cheese making"}
+
 ## How it works
 
 The Cheese Store API is a standard REST API. Authenticate with your API key, make requests, receive cheese data. We considered GraphQL but decided life is too short for schema stitching when you could be eating Gruyère.
