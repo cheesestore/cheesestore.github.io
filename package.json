@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "sourcey dev",
-    "build": "sourcey build"
+    "build": "npx sourcey build"
   },
   "dependencies": {
-    "sourcey": "*"
+    "sourcey": "^3.4.1"
   }
 }
