@@ -6,7 +6,7 @@ export default defineConfig({
     colors: {
       primary: "#d97706",
       light: "#d97706",
-      dark: "#785236",
+      dark: "#8b5033",
     },
   },
   logo: "./cheese.svg",
@@ -73,8 +73,8 @@ export default defineConfig({
     ],
     primary: {
       type: "button",
-      label: "Order Cheese",
-      href: "https://cheesestore.github.io",
+      label: "Use Sourcey",
+      href: "https://sourcey.com",
     },
   },
   footer: {
