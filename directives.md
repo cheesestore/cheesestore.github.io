@@ -56,16 +56,16 @@ Not for the faint-hearted. Roquefort, Stilton, Gorgonzola Dolce. The mould is th
 
 :::code-group
 ```javascript title="Node.js"
-const res = await fetch('https://cheese.sourcey.com/v2/cheeses');
+const res = await fetch('https://cheese.example.com/v2/cheeses');
 const data = await res.json();
 ```
 ```python title="Python"
 import requests
-res = requests.get('https://cheese.sourcey.com/v2/cheeses')
+res = requests.get('https://cheese.example.com/v2/cheeses')
 data = res.json()
 ```
 ```bash title="cURL"
-curl -s 'https://cheese.sourcey.com/v2/cheeses' | jq
+curl -s 'https://cheese.example.com/v2/cheeses' | jq
 ```
 :::
 

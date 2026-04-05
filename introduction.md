@@ -14,7 +14,7 @@ Every cheese marketplace deserves an API with better documentation than most sta
 The Cheese Store API is a standard REST API. Authenticate with your API key, make requests, receive cheese data. We considered GraphQL but decided life is too short for schema stitching when you could be eating Gruyère.
 
 ```bash
-curl -X GET 'https://cheese.sourcey.com/v2/cheeses?country=france&texture=soft' \
+curl -X GET 'https://cheese.example.com/v2/cheeses?country=france&texture=soft' \
   -H 'Authorization: Bearer your-api-key'
 ```
 
@@ -76,7 +76,7 @@ No SDK required. Any HTTP client will do. Even `wget`, if you're feeling nostalg
 
 <Steps>
   <Step title="Get your API key">
-    Sign up at [cheese.sourcey.com/developers](https://cheese.sourcey.com/developers) and grab your API key from the dashboard. Free tier gets you 100 requests/hour, which is roughly 100 more cheeses than most people can eat in an hour.
+    Sign up at [cheese.example.com/developers](https://cheese.example.com/developers) and grab your API key from the dashboard. Free tier gets you 100 requests/hour, which is roughly 100 more cheeses than most people can eat in an hour.
   </Step>
   <Step title="Browse the catalog">
     Hit `GET /v2/cheeses` to explore. Try filtering with `?country=switzerland&aged_weeks_min=12` to find a properly aged Gruyère. Each response includes tasting notes, so you can sound knowledgeable at dinner parties.
