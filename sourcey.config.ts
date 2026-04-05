@@ -73,7 +73,7 @@ export default defineConfig({
     ],
     primary: {
       type: "button",
-      label: "Use Sourcey",
+      label: "Install Sourcey",
       href: "https://sourcey.com",
     },
   },
