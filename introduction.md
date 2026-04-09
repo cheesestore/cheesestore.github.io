@@ -41,10 +41,10 @@ No SDK required. Any HTTP client will do. Even `wget`, if you're feeling nostalg
 ## What you can do
 
 <CardGroup cols={2}>
-  <Card title="Browse the cheese catalog" icon="search" href="api/#tag-cheese">
+  <Card title="Browse the cheese catalog" icon="magnifying-glass" href="api/#tag-cheese">
     Search and filter 200+ artisanal cheeses by origin, milk type, texture, aging, and whether they'll clear a room. Full-text search across tasting notes included.
   </Card>
-  <Card title="Place orders" icon="cart" href="api/#tag-store">
+  <Card title="Place orders" icon="shopping-cart" href="api/#tag-store">
     Create orders with temperature-controlled shipping, track deliveries in real-time, and set up recurring subscriptions. Because one wheel of Comté is never enough.
   </Card>
   <Card title="Manage customers" icon="users" href="api/#tag-customer">

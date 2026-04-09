@@ -19,16 +19,16 @@ Webhooks let your application receive real-time notifications when events occur 
 ## Events
 
 :::card-group{cols="2"}
-::card{title="Order events" icon="box"}
+::card{title="Order events" icon="archive-box"}
 `order.placed`, `order.confirmed`, `order.shipped`, `order.delivered`, `order.cancelled`
 ::
-::card{title="Inventory events" icon="warehouse"}
+::card{title="Inventory events" icon="building-storefront"}
 `cheese.back_in_stock`, `cheese.low_stock`, `cheese.out_of_stock`, `cheese.new_arrival`
 ::
 ::card{title="Customer events" icon="user"}
 `customer.created`, `customer.updated`, `customer.subscription_changed`
 ::
-::card{title="System events" icon="gear"}
+::card{title="System events" icon="cog-6-tooth"}
 `webhook.test`, `api_key.expiring`
 ::
 :::

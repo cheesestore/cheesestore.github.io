@@ -89,10 +89,10 @@ Head to the [API Reference](/api) to see every endpoint, request schema, and res
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Authentication deep dive" icon="lock" href="/authentication">
+  <Card title="Authentication deep dive" icon="lock-closed" href="/authentication">
     Learn about API keys, OAuth2 flows, and how to rotate credentials without downtime.
   </Card>
-  <Card title="Full API Reference" icon="book" href="/api">
+  <Card title="Full API Reference" icon="book-open" href="/api">
     Every endpoint, every parameter, every possible way to query cheese programmatically.
   </Card>
 </CardGroup>

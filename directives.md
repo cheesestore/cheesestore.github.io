@@ -72,13 +72,13 @@ curl -s 'https://cheese.example.com/v2/cheeses' | jq
 ## Cards
 
 :::card-group{cols="3"}
-::card{title="Authentication" href="/authentication" icon="lock"}
+::card{title="Authentication" href="/authentication" icon="lock-closed"}
 API keys, OAuth2, and credential rotation without downtime.
 ::
 ::card{title="Webhooks" href="/guides/webhooks" icon="bell"}
 Real-time event notifications for orders, inventory, and more.
 ::
-::card{title="API Reference" href="/api" icon="book"}
+::card{title="API Reference" href="/api" icon="book-open"}
 Every endpoint, every parameter, every cheese.
 ::
 :::
