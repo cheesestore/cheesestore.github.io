@@ -2,7 +2,7 @@
 
 Reference documentation project built with [Sourcey](https://sourcey.com). Clone it, run it, use it as a starting point for your own docs.
 
-**[Live demo](https://sourcey.com/cheesestore/)**
+**[Live demo](https://sourcey.com/cheesestore)**
 
 ## What's inside
 
