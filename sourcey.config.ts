@@ -64,7 +64,7 @@ export default defineConfig({
         groups: [
           {
             group: "Updates",
-            pages: ["changelog"],
+            pages: ["index"],
           },
         ],
       },
