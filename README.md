@@ -34,6 +34,9 @@ npx sourcey build
 
 Static HTML written to `dist/`. Deploy anywhere.
 
+The demo deploys to Cloudflare Pages as `cheesestore-docs` and is served at
+`https://sourcey.com/cheesestore` through the sourcey.com proxy.
+
 ## Project structure
 
 ```

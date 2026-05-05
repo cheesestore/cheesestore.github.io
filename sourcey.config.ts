@@ -2,6 +2,8 @@ import { defineConfig } from "sourcey";
 
 export default defineConfig({
   name: "Cheese Store",
+  siteUrl: "https://sourcey.com",
+  baseUrl: "/cheesestore",
   prettyUrls: "strip",
   theme: {
     colors: {
