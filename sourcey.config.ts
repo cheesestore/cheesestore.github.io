@@ -1,4 +1,4 @@
-import { defineConfig } from "sourcey";
+import { defineConfig, markdown, mcp, openapi } from "sourcey";
 
 export default defineConfig({
   name: "Cheese Store",
@@ -16,7 +16,15 @@ export default defineConfig({
   favicon: "./favicon.ico",
   repo: "https://github.com/cheesestore/cheesestore.github.io",
   editBranch: "main",
-  codeSamples: ["curl", "javascript", "typescript", "python", "go", "ruby", "rust"],
+  codeSamples: [
+    "curl",
+    "javascript",
+    "typescript",
+    "python",
+    "go",
+    "ruby",
+    "rust",
+  ],
   search: {
     featured: ["introduction", "quickstart", "authentication"],
   },
@@ -25,54 +33,63 @@ export default defineConfig({
       {
         tab: "Documentation",
         slug: "",
-        groups: [
-          {
-            group: "Getting Started",
-            pages: ["introduction", "quickstart", "authentication"],
-          },
-          {
-            group: "Concepts",
-            pages: ["concepts"],
-          },
-        ],
+        source: markdown({
+          groups: [
+            {
+              group: "Getting Started",
+              pages: ["introduction", "quickstart", "authentication"],
+            },
+            {
+              group: "Concepts",
+              pages: ["concepts"],
+            },
+          ],
+        }),
       },
       {
         tab: "Guides",
-        groups: [
-          {
-            group: "Integration",
-            pages: ["webhooks"],
-          },
-          {
-            group: "Reference",
-            pages: ["directives"],
-          },
-        ],
+        source: markdown({
+          groups: [
+            {
+              group: "Integration",
+              pages: ["webhooks"],
+            },
+            {
+              group: "Reference",
+              pages: ["directives"],
+            },
+          ],
+        }),
       },
       {
         tab: "API Reference",
         slug: "api",
-        openapi: "./cheese.yml",
+        source: openapi("./cheese.yml"),
       },
       {
         tab: "MCP Tools",
         slug: "mcp",
-        mcp: "./cheesestore.mcp.json",
+        source: mcp("./cheesestore.mcp.json"),
       },
       {
         tab: "Changelog",
-        groups: [
-          {
-            group: "Updates",
-            pages: ["index"],
-          },
-        ],
+        source: markdown({
+          groups: [
+            {
+              group: "Updates",
+              pages: ["index"],
+            },
+          ],
+        }),
       },
     ],
   },
   navbar: {
     links: [
-      { type: "github", href: "https://github.com/cheesestore/cheesestore.github.io" },
+      {
+        type: "github",
+        href: "https://github.com/cheesestore/cheesestore.github.io",
+      },
     ],
     primary: {
       type: "button",
@@ -82,7 +99,10 @@ export default defineConfig({
   },
   footer: {
     links: [
-      { type: "github", href: "https://github.com/cheesestore/cheesestore.github.io" },
+      {
+        type: "github",
+        href: "https://github.com/cheesestore/cheesestore.github.io",
+      },
     ],
   },
 });
