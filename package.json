@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "sourcey dev",
-    "build": "npx sourcey build"
+    "build": "sourcey build && node scripts/preload-css.mjs && cp robots.txt dist/robots.txt"
   },
   "dependencies": {
-    "sourcey": "^3.6.0"
+    "sourcey": "3.6.12"
   }
 }

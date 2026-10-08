@@ -3,7 +3,7 @@ title: Core Concepts
 description: The fundamental building blocks of the Cheese Store API. Think of it as Cheese Theory 101.
 ---
 
-Before you start slinging API calls, it helps to understand how the Cheese Store models the world. Spoiler: everything revolves around cheese.
+This page explains the data model in the fictional Cheese Store API fixture. The examples show how Sourcey renders a detailed guide alongside an API reference.
 
 ## The Cheese Object
 

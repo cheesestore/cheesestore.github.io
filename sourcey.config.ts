@@ -2,10 +2,10 @@ import { defineConfig, markdown, mcp, openapi } from "sourcey";
 
 export default defineConfig({
   name: "Cheese Store",
-  siteUrl: "https://sourcey.com",
-  baseUrl: "/cheesestore",
+  siteUrl: "https://cheesestore-docs.pages.dev",
   prettyUrls: "strip",
   theme: {
+    fonts: { sans: "system-ui", google: false },
     colors: {
       primary: "#d97706",
       light: "#d97706",
@@ -94,7 +94,7 @@ export default defineConfig({
     primary: {
       type: "button",
       label: "Install Sourcey",
-      href: "https://sourcey.com",
+      href: "https://sourcey.com/docs",
     },
   },
   footer: {

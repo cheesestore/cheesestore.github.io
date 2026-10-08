@@ -3,7 +3,7 @@ title: Components
 description: Rich components for documentation pages, using simple directive syntax.
 ---
 
-Sourcey supports rich components in plain markdown using `:::directive` syntax. No JSX imports needed.
+Sourcey supports rich components in plain markdown using `:::directive` syntax. No JSX imports needed. The Cheese Store instructions and addresses below are illustrative; there is no live Cheese Store API or SDK.
 
 ## Callouts
 
@@ -12,7 +12,7 @@ API keys are scoped to environments. A test key won't work against production en
 :::
 
 :::warning
-Never commit API keys to version control. Use environment variables or a secrets manager. We scan public repos and revoke leaked keys automatically.
+Never commit API keys to version control. Use environment variables or a secrets manager.
 :::
 
 :::tip
@@ -31,11 +31,11 @@ You can override the default callout title by adding text after the type.
 
 :::steps
 1. Install the SDK
-   Choose your language and install via your package manager.
+   For a real service, choose a supported client or use HTTP directly.
 2. Set your API key
    Export `CHEESE_API_KEY` in your shell or pass it to the client constructor.
 3. Make a request
-   Call any endpoint. The SDK handles auth, retries, and serialization.
+   Send a request to your own service and handle errors and retries in your client.
 :::
 
 ## Tabs

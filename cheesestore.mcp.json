@@ -5,16 +5,11 @@
     "name": "cheesestore",
     "version": "2.0.0"
   },
-  "description": "The Cheese Store MCP server lets AI agents browse, search, and order artisanal cheeses on behalf of discerning humans who have better things to do than scroll through a catalog.\n\nPairs well with a glass of wine and a patient language model.",
+  "description": "A fictional Cheese Store MCP schema fixture for demonstrating Sourcey's generated tool documentation. The listed tools and cheese-ordering service are examples, not a running MCP server.",
   "capabilities": {
     "tools": { "listChanged": false },
     "resources": { "subscribe": false, "listChanged": false },
     "prompts": { "listChanged": false }
-  },
-  "transport": {
-    "type": "stdio",
-    "command": "npx",
-    "args": ["@cheesestore/mcp-server"]
   },
   "tools": [
     {

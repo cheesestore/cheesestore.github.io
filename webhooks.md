@@ -3,7 +3,7 @@ title: Webhooks
 description: Real-time event delivery for orders, inventory, and system events.
 ---
 
-Webhooks let your application receive real-time notifications when events occur in the Cheese Store. Register a URL and we call you when something happens.
+This is a fictional webhook design in the Cheese Store API fixture. It demonstrates how Sourcey renders event documentation; there is no live delivery service to register with.
 
 ## Setup
 

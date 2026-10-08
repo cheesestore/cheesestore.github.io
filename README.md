@@ -6,7 +6,7 @@ Reference documentation project built with [Sourcey](https://sourcey.com). Clone
 
 ## What's inside
 
-This project demonstrates every Sourcey feature in one site:
+This project demonstrates several Sourcey features in one site:
 
 - **Markdown guides** with rich components (cards, tabs, steps, callouts, accordions, code groups)
 - **OpenAPI reference** auto-generated from `cheese.yml` with code samples in 7 languages
@@ -34,15 +34,16 @@ npx sourcey build
 
 Static HTML written to `dist/`. Deploy anywhere.
 
-The demo deploys to Cloudflare Pages as `cheesestore-docs` and is served at
-`https://sourcey.com/cheesestore` through the sourcey.com proxy.
+The demo deploys to Cloudflare Pages as `cheesestore-docs` at
+`https://cheesestore-docs.pages.dev`. The older `sourcey.com/cheesestore`
+entry point redirects to that site.
 
 ## Project structure
 
 ```
 sourcey.config.ts    # Site config — tabs, navigation, theme
-cheese.yml           # OpenAPI 3.0 spec (Cheese Store API)
-cheesestore.mcp.json # MCP server snapshot
+cheese.yml           # Fictional OpenAPI 3.1 contract
+cheesestore.mcp.json # Fictional MCP schema snapshot
 cheese.svg           # Logo
 introduction.md      # Landing page
 quickstart.md        # Getting started guide
@@ -50,7 +51,7 @@ authentication.md    # Auth guide
 concepts.md          # Core concepts
 webhooks.md          # Webhook integration guide
 directives.md        # Component showcase (every directive type)
-changelog.md         # Release notes
+index.md             # Changelog tab
 ```
 
 ## Use as a template
