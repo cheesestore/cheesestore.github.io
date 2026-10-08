@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "sourcey dev",
-    "build": "sourcey build && cp robots.txt dist/robots.txt"
+    "build": "sourcey build && node scripts/inline-css.mjs && cp robots.txt dist/robots.txt"
   },
   "dependencies": {
     "sourcey": "3.6.12"
