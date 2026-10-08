@@ -1,0 +1,38 @@
+{
+  "mcpSpec": "0.2.0",
+  "mcpVersion": "2025-11-25",
+  "server": {
+    "name": "cheesestore-example",
+    "version": "1.0.0"
+  },
+  "description": "A local MCP example for a fictional cheese store. Run npm run mcp:example from this repository to connect over stdio.",
+  "capabilities": {
+    "tools": { "listChanged": false }
+  },
+  "transport": {
+    "type": "stdio",
+    "command": "node",
+    "args": ["example-server.mjs"]
+  },
+  "tools": [
+    {
+      "name": "search_cheeses",
+      "description": "Example tool: search a fictional cheese catalog by milk type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "milk_type": { "type": "string", "enum": ["cow", "goat", "sheep"] }
+        }
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ],
+  "resources": [],
+  "resourceTemplates": [],
+  "prompts": []
+}

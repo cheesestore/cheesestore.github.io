@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Cheese Store API
+  version: 1.0.0
+  description: A fictional API used to demonstrate generated documentation. No live cheese service is provided.
+servers:
+  - url: https://api.example.com
+    description: Example host; requests are not served here.
+tags:
+  - name: Cheeses
+    description: Search and inspect the sample catalog.
+paths:
+  /cheeses:
+    get:
+      tags: [Cheeses]
+      summary: List cheeses
+      operationId: listCheeses
+      security:
+        - ApiKey: []
+      parameters:
+        - name: milk_type
+          in: query
+          description: Filter by the animal that produced the milk.
+          schema:
+            type: string
+            enum: [cow, goat, sheep]
+        - name: limit
+          in: query
+          description: Maximum number of results.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        "200":
+          description: A page of cheeses.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CheesePage"
+        "401":
+          description: API key missing or invalid.
+  /cheeses/{id}:
+    get:
+      tags: [Cheeses]
+      summary: Get a cheese
+      operationId: getCheese
+      security:
+        - ApiKey: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: One cheese.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cheese"
+        "404":
+          description: No cheese has this ID.
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    Cheese:
+      type: object
+      required: [id, name, milk_type, available]
+      properties:
+        id:
+          type: string
+          example: cheese_42
+        name:
+          type: string
+          example: Comté
+        milk_type:
+          type: string
+          enum: [cow, goat, sheep]
+        available:
+          type: integer
+          minimum: 0
+          example: 12
+    CheesePage:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Cheese"
+        next_cursor:
+          type: string
+          description: Present when more results are available.

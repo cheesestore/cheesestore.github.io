@@ -1,0 +1,13 @@
+{
+  "name": "cheesestore-docs-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "sourcey build --output dist && cp robots.txt dist/robots.txt",
+    "mcp:example": "node example-server.mjs"
+  },
+  "dependencies": {
+    "sourcey": "3.6.12"
+  }
+}
