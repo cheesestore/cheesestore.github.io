@@ -1,29 +1,35 @@
 ---
-title: Introduction
-description: A fictional cheese API and a real Sourcey documentation build.
+title: Cheese Store API
+description: The catalog, the orders, the last wheel of Comté.
 ---
 
-# Cheese Store API
+Browse the catalog, check the stock and follow an order through the shop. The reference covers HTTP endpoints and MCP tools; the guides cover the work between requests.
 
-The store is fictional. The documentation build is real. Sourcey turns this repository's Markdown, OpenAPI description, and MCP snapshot into the site you are reading. There are no customer accounts, orders, or live cheese endpoints behind the examples.
-
-## What to inspect
+## Find your way around
 
 <CardGroup cols={2}>
+  <Card title="Quickstart" icon="bolt" href="/quickstart">
+    Clone the example, run the docs locally and make the build your own.
+  </Card>
+  <Card title="Authentication" icon="key" href="/authentication">
+    API keys, OAuth scopes and the credentials each operation expects.
+  </Card>
   <Card title="API reference" icon="code-bracket" href="/api">
-    Open an operation, follow its request and response schemas, and inspect the generated code samples.
+    Every endpoint, request field and response, with examples in seven languages.
   </Card>
   <Card title="MCP tools" icon="command-line" href="/mcp">
-    See how a tool, resource, and prompt snapshot becomes browsable reference. This is a sample contract, not a hosted server.
+    Search the catalog and inspect the inputs, resources and prompts available to an agent.
   </Card>
-  <Card title="Guides" icon="book-open" href="/guides/webhooks">
-    Read a Markdown guide beside the generated references. The sample events are illustrative.
+  <Card title="Webhooks" icon="bell" href="/guides/webhooks">
+    Follow orders and stock changes. Verify signatures and handle retries.
   </Card>
-  <Card title="Reproduce the build" icon="arrow-down-tray" href="/quickstart">
-    Clone the source, run the pinned version of Sourcey, and inspect the static output yourself.
+  <Card title="Changelog" icon="clock" href="/changelog">
+    New endpoints, contract changes and fixes, release by release.
   </Card>
 </CardGroup>
 
-The API fixture includes authentication schemes, pagination, and several response types. Use the search box to find a field across the guides and reference. The [source files](https://github.com/cheesestore/cheesestore.github.io) show exactly what was written by hand and what Sourcey generated.
+## One build, three sources
 
-For the generator's supported inputs, installation routes, and AGPL license, see [Sourcey documentation](https://sourcey.com/docs).
+Markdown supplies the guides and changelog. An OpenAPI description supplies the HTTP reference. An MCP snapshot supplies the tools. Sourcey builds the navigation, code samples and search from those files.
+
+The Cheese Store is fictional; the endpoints and credentials are examples. The documentation is a real Sourcey build. [Browse the source](https://github.com/cheesestore/cheesestore.github.io) or [build it yourself](/quickstart).
