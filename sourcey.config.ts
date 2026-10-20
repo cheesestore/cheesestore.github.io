@@ -5,7 +5,7 @@ export default defineConfig({
   siteUrl: "https://cheesestore-docs.pages.dev",
   prettyUrls: "strip",
   theme: {
-    fonts: { sans: "system-ui", google: false },
+    fonts: { sans: "system" },
     colors: {
       primary: "#d97706",
       light: "#d97706",
