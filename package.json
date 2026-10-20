@@ -6,6 +6,6 @@
     "build": "sourcey build && cp robots.txt dist/robots.txt"
   },
   "dependencies": {
-    "sourcey": "3.8.0"
+    "sourcey": "3.8.1"
   }
 }
