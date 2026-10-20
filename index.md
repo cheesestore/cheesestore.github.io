@@ -1,6 +1,6 @@
 ---
 title: Changelog
-description: Recent updates and improvements to the Cheese Store API.
+description: New endpoints, contract changes and fixes.
 layout: changelog
 ---
 
